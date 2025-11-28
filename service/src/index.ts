@@ -10,6 +10,14 @@ import figmaFileRoutes from "./routes/figma-file.routes";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Request logging middleware
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+  console.log("Origin:", req.headers.origin);
+  console.log("Referer:", req.headers.referer);
+  next();
+});
+
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "http://localhost:5173",

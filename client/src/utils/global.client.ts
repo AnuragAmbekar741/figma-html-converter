@@ -8,4 +8,19 @@ export const GLOBAL_CLIENT = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // This sends cookies automatically with every request
 });
+
+// Response interceptor for error handling
+GLOBAL_CLIENT.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // User is not authenticated - cookies are missing or invalid
+      window.location.href = "/";
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default GLOBAL_CLIENT;

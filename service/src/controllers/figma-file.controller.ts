@@ -6,15 +6,16 @@ const figmaFileService = new FigmaFileService();
 export class FigmaFileController {
   async getFile(req: Request, res: Response): Promise<void> {
     try {
-      const authHeader = req.headers.authorization;
-      if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      // Read token from HTTP-only cookie instead of Authorization header
+      const accessToken = req.cookies?.figma_access_token;
+
+      if (!accessToken) {
         res.status(401).json({
-          error: "Missing or invalid authorization header",
+          error: "Missing or invalid access token",
         });
         return;
       }
 
-      const accessToken = authHeader.substring(7);
       const { fileKey } = req.params;
 
       if (!fileKey) {
