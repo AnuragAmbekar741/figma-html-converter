@@ -1,7 +1,7 @@
 import axios from "axios";
 import { figmaConfig } from "../config/figma.config";
 
-export class FigmaService {
+export class FigmaOauthService {
   getAuthorizationUrl(state?: string): string {
     const params = new URLSearchParams({
       client_id: figmaConfig.clientId,

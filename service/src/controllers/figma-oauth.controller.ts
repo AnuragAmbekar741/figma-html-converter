@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { FigmaService } from "../services/figma.service";
+import { FigmaOauthService } from "../services/figma-oauth.service";
 
-const figmaService = new FigmaService();
+const figmaService = new FigmaOauthService();
 
-export class FigmaController {
+export class FigmaOauthController {
   authorize(req: Request, res: Response): void {
     const state = req.query.state as string | undefined;
     const authUrl = figmaService.getAuthorizationUrl(state);
