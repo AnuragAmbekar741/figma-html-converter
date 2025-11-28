@@ -15,17 +15,17 @@ export class FigmaOauthController {
       const { code, state, error } = req.query;
 
       if (error) {
-        res.status(400).json({
-          error: "OAuth error",
-          message: error,
-        });
+        // Redirect to frontend with error
+        const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+        res.redirect(
+          `${frontendUrl}?error=${encodeURIComponent(error as string)}`
+        );
         return;
       }
 
       if (!code || typeof code !== "string") {
-        res.status(400).json({
-          error: "Missing authorization code",
-        });
+        const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+        res.redirect(`${frontendUrl}?error=missing_code`);
         return;
       }
 
@@ -35,33 +35,43 @@ export class FigmaOauthController {
       // Get user info
       const userInfo = await figmaService.getUserInfo(tokens.access_token);
 
-      res.json({
-        success: true,
-        user: userInfo,
-        access_token: tokens.access_token,
-        refresh_token: tokens.refresh_token,
-        state,
+      // Set HTTP-only cookies
+      res.cookie("figma_access_token", tokens.access_token, {
+        httpOnly: true,
+        sameSite: "lax",
+        maxAge: 60 * 60 * 24 * 7, // 7 days
       });
+
+      if (tokens.refresh_token) {
+        res.cookie("figma_refresh_token", tokens.refresh_token, {
+          httpOnly: true,
+          sameSite: "lax",
+          maxAge: 60 * 60 * 24 * 30, // 30 days
+        });
+      }
+
+      // Redirect to frontend WITHOUT tokens in URL
+      const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+      res.redirect(`${frontendUrl}/`);
     } catch (error) {
       console.error("OAuth callback error:", error);
-      res.status(500).json({
-        error: "Failed to complete OAuth flow",
-        message: error instanceof Error ? error.message : "Unknown error",
-      });
+      const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+      res.redirect(`${frontendUrl}?error=oauth_failed`);
     }
   }
 
   async getUserInfo(req: Request, res: Response): Promise<void> {
     try {
-      const authHeader = req.headers.authorization;
-      if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      // Read token from HTTP-only cookie instead of Authorization header
+      const accessToken = req.cookies?.figma_access_token;
+
+      if (!accessToken) {
         res.status(401).json({
-          error: "Missing or invalid authorization header",
+          error: "Missing or invalid access token",
         });
         return;
       }
 
-      const accessToken = authHeader.substring(7);
       const userInfo = await figmaService.getUserInfo(accessToken);
 
       res.json({
