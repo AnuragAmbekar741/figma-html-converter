@@ -1,5 +1,7 @@
-function App() {
-  return <div className="text-xl">Hello</div>;
-}
+import React from "react";
+
+const App: React.FC = () => {
+  return <div></div>;
+};
 
 export default App;
