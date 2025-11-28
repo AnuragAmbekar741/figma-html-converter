@@ -1,4 +1,4 @@
-import GLOBAL_CLIENT from "./global.client";
+import { GLOBAL_CLIENT } from "./global.client";
 
 export const get = async <T>(
   url: string,
