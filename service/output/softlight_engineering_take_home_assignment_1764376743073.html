@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softlight Engineering Take-Home Assignment</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .frame {
+            width: 393px;
+            height: 852px;
+            background-color: #FAFAFA;
+            border-radius: 32px;
+            position: relative;
+        }
+
+        .home-indicator {
+            position: absolute;
+            left: 0;
+            top: 831px;
+            width: 393px;
+            height: 21px;
+        }
+
+        .home-indicator-rect {
+            position: absolute;
+            left: 127px;
+            top: 839px;
+            width: 139px;
+            height: 5px;
+            background-color: #2C194D;
+            border-radius: 100px;
+            transform: rotate(180deg);
+        }
+
+        .headline {
+            position: absolute;
+            left: 32px;
+            top: 170px;
+            font-size: 48px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: #363341;
+            line-height: 57.6px;
+        }
+
+        .input-frame {
+            position: absolute;
+            left: 32px;
+            top: 252px;
+            width: 329px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            padding: 20px 16px;
+            border: 1px solid #D7D7D7;
+            border-radius: 8px;
+        }
+
+        .input-text {
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: #363341;
+            line-height: 18px;
+        }
+
+        .password-frame {
+            position: absolute;
+            left: 32px;
+            top: 310px;
+            width: 329px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            padding: 20px 16px;
+            border: 1px solid #D7D7D7;
+            border-radius: 8px;
+        }
+
+        .password-text {
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: #C0C0C0;
+            line-height: 18px;
+        }
+
+        .sign-in-button {
+            position: absolute;
+            left: 16px;
+            top: 662px;
+            width: 361px;
+            height: 46px;
+            background: linear-gradient(90deg, #95228C 0%, #3A3CB3 100%);
+            border-radius: 62px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .sign-in-button-text {
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .create-account-button {
+            position: absolute;
+            left: 16px;
+            top: 720px;
+            width: 361px;
+            height: 46px;
+            background-color: #E1E0E6;
+            border-radius: 62px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .create-account-text {
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #363341;
+        }
+
+        .forgot-password {
+            position: absolute;
+            left: 16px;
+            top: 778px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: rgba(54, 51, 65, 0.8);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame">
+        <div class="home-indicator">
+            <div class="home-indicator-rect"></div>
+        </div>
+        <div class="headline">Sign in</div>
+        <div class="input-frame">
+            <span class="input-text">andy@gmail.com</span>
+        </div>
+        <div class="password-frame">
+            <span class="password-text">Password</span>
+        </div>
+        <div class="sign-in-button">
+            <div class="sign-in-button-text">Sign in</div>
+        </div>
+        <div class="create-account-button">
+            <div class="create-account-text">Create account</div>
+        </div>
+        <div class="forgot-password">Forgot password</div>
+    </div>
+</body>
+
+</html>

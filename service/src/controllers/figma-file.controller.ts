@@ -1,7 +1,11 @@
 import { Request, Response } from "express";
 import { FigmaFileService } from "../services/figma-file.service";
+import { LangChainService } from "../services/langchain.service";
+import { HtmlStorageService } from "../services/html-storage.service";
+import path from "path";
 
 const figmaFileService = new FigmaFileService();
+const htmlStorageService = new HtmlStorageService();
 
 export class FigmaFileController {
   async getFile(req: Request, res: Response): Promise<void> {
@@ -211,6 +215,57 @@ export class FigmaFileController {
       console.error("Get file image fills error:", error);
       res.status(500).json({
         error: "Failed to get file image fills",
+        message: error instanceof Error ? error.message : "Unknown error",
+      });
+    }
+  }
+
+  /**
+   * Convert Figma file to HTML
+   */
+  async convertFileToHTML(req: Request, res: Response): Promise<void> {
+    try {
+      const accessToken = req.cookies?.figma_access_token;
+
+      if (!accessToken) {
+        res.status(401).json({
+          error: "Missing or invalid access token",
+        });
+        return;
+      }
+
+      const { fileKey } = req.params;
+
+      if (!fileKey) {
+        res.status(400).json({
+          error: "File key is required",
+        });
+        return;
+      }
+
+      // Get file data from Figma
+      const fileData = await figmaFileService.getFile(accessToken, fileKey);
+
+      // Convert to HTML using LLM
+      const langchainService = new LangChainService();
+      const html = await langchainService.convertFigmaToHTML(fileData);
+
+      // Save HTML to output folder
+      const fileName = fileData.name || "Untitled";
+      const savedPath = htmlStorageService.saveHTML(html, fileName);
+      const savedFileName = path.basename(savedPath);
+
+      res.json({
+        success: true,
+        html: html,
+        fileName: fileName,
+        savedFileName: savedFileName, // Return the saved filename
+        savedPath: savedPath, // Return the full path (for reference)
+      });
+    } catch (error) {
+      console.error("Convert file to HTML error:", error);
+      res.status(500).json({
+        error: "Failed to convert file to HTML",
         message: error instanceof Error ? error.message : "Unknown error",
       });
     }

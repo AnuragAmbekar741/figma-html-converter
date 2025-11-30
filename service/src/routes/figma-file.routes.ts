@@ -16,4 +16,9 @@ router.get("/:fileKey/image-fills", (req, res) =>
   figmaFileController.getFileImageFills(req, res)
 );
 
+// Convert to HTML route
+router.post("/:fileKey/convert", (req, res) =>
+  figmaFileController.convertFileToHTML(req, res)
+);
+
 export default router;

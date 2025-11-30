@@ -68,3 +68,15 @@ export const getFigmaFile = async (
 
   return get<FigmaFileResponse>(`/file/figma/${fileKey}`, params);
 };
+
+export interface ConvertToHTMLResponse {
+  success: boolean;
+  html: string;
+  fileName: string;
+}
+
+export const convertFigmaFileToHTML = async (
+  fileKey: string
+): Promise<ConvertToHTMLResponse> => {
+  return get<ConvertToHTMLResponse>(`/file/figma/${fileKey}/convert`);
+};

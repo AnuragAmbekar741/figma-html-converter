@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { getUserInfo } from "../api/figma-oauth";
 import { motion } from "framer-motion";
-import { ArrowRight, Figma, LogOut, Loader2 } from "lucide-react";
+import { ArrowRight, Figma, LogOut, Loader2, Check } from "lucide-react";
 import { extractFileKeyFromUrl, isValidFigmaUrl } from "../utils/figma-url";
-import { getFigmaFile } from "../api/figma-file";
+import { getFigmaFile, convertFigmaFileToHTML } from "../api/figma-file";
 import { AxiosError } from "axios";
 
 const HomeView: React.FC = () => {
   const [fileUrl, setFileUrl] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [fileKey, setFileKey] = useState<string | null>(null);
+  const [fileName, setFileName] = useState<string | null>(null);
+  const [htmlResult, setHtmlResult] = useState<string | null>(null);
 
   const {
     data,
@@ -21,12 +24,14 @@ const HomeView: React.FC = () => {
     retry: false,
   });
 
+  // Mutation for adding/fetching file
   const fileMutation = useMutation({
-    mutationFn: (fileKey: string) => getFigmaFile(fileKey),
+    mutationFn: (key: string) => getFigmaFile(key),
     onSuccess: (data) => {
       console.log("File data received:", data);
       setError(null);
-      // Handle the file data here (e.g., display it, convert it, etc.)
+      setFileName(data.file?.name || "Untitled");
+      // File is now added, ready for conversion
     },
     onError: (error: unknown) => {
       console.error("Error fetching file:", error);
@@ -39,14 +44,35 @@ const HomeView: React.FC = () => {
     },
   });
 
+  // Mutation for converting to HTML
+  const convertMutation = useMutation({
+    mutationFn: (key: string) => convertFigmaFileToHTML(key),
+    onSuccess: (data) => {
+      console.log("HTML generated:", data);
+      setError(null);
+      setHtmlResult(data.html);
+    },
+    onError: (error: unknown) => {
+      console.error("Error converting file:", error);
+      const axiosError = error as AxiosError<{ error?: string }>;
+      setError(
+        axiosError.response?.data?.error ||
+          axiosError.message ||
+          "Failed to convert file to HTML."
+      );
+    },
+  });
+
   const handleLogout = async () => {
-    // Logout logic can be added here if needed
     window.location.href = "/";
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleAddFile = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setFileKey(null);
+    setFileName(null);
+    setHtmlResult(null);
 
     // Validate URL
     if (!isValidFigmaUrl(fileUrl)) {
@@ -55,16 +81,27 @@ const HomeView: React.FC = () => {
     }
 
     // Extract file key
-    const fileKey = extractFileKeyFromUrl(fileUrl);
-    if (!fileKey) {
+    const extractedKey = extractFileKeyFromUrl(fileUrl);
+    if (!extractedKey) {
       setError(
         "Could not extract file key from URL. Please check the URL format."
       );
       return;
     }
 
-    // Call API
-    fileMutation.mutate(fileKey);
+    // Call API to add/fetch file
+    fileMutation.mutate(extractedKey, {
+      onSuccess: () => {
+        setFileKey(extractedKey);
+      },
+    });
+  };
+
+  const handleConvert = () => {
+    if (!fileKey) return;
+    setError(null);
+    setHtmlResult(null);
+    convertMutation.mutate(fileKey);
   };
 
   // Animation variants
@@ -88,6 +125,8 @@ const HomeView: React.FC = () => {
   if (authError || !data?.success) return null;
 
   const user = data.user;
+  const isFileAdded = fileKey && fileMutation.isSuccess;
+  const isConverting = convertMutation.isPending;
 
   return (
     <div className="relative min-h-screen w-full bg-[#FAFAF9] text-stone-900 font-sans selection:bg-orange-100 selection:text-orange-900 overflow-hidden">
@@ -154,7 +193,7 @@ const HomeView: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            onSubmit={handleSubmit}
+            onSubmit={handleAddFile}
             className="w-full max-w-xl mx-auto space-y-4"
           >
             <div className="relative group">
@@ -167,6 +206,12 @@ const HomeView: React.FC = () => {
                   onChange={(e) => {
                     setFileUrl(e.target.value);
                     setError(null);
+                    // Reset state when URL changes
+                    if (isFileAdded) {
+                      setFileKey(null);
+                      setFileName(null);
+                      setHtmlResult(null);
+                    }
                   }}
                   placeholder="https://www.figma.com/file/..."
                   className="flex-1 bg-transparent border-none outline-none text-stone-900 placeholder:text-stone-300 text-base"
@@ -182,7 +227,7 @@ const HomeView: React.FC = () => {
                     <Loader2 className="w-3.5 h-3.5 animate-spin" />
                   ) : (
                     <>
-                      <span>Convert</span>
+                      <span>Add</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </>
                   )}
@@ -200,17 +245,70 @@ const HomeView: React.FC = () => {
               </motion.div>
             )}
 
-            {fileMutation.isSuccess && (
+            {isFileAdded && fileName && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-sm text-green-600 bg-green-50 border border-green-200 rounded-lg p-3"
+                className="text-sm text-green-600 bg-green-50 border border-green-200 rounded-lg p-3 flex items-center justify-between"
               >
-                File loaded successfully! File name:{" "}
-                {fileMutation.data?.file?.name}
+                <div className="flex items-center space-x-2">
+                  <Check className="w-4 h-4" />
+                  <span>
+                    File added: <strong>{fileName}</strong>
+                  </span>
+                </div>
               </motion.div>
             )}
           </motion.form>
+
+          {/* Convert Button - Show after file is added */}
+          {isFileAdded && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="w-full max-w-xl mx-auto"
+            >
+              <button
+                onClick={handleConvert}
+                disabled={isConverting}
+                className="w-full bg-gradient-to-r from-orange-500 to-rose-500 text-white px-8 py-4 rounded-full font-medium text-base hover:from-orange-600 hover:to-rose-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+              >
+                {isConverting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Converting...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Convert to HTML</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </>
+                )}
+              </button>
+            </motion.div>
+          )}
+
+          {/* HTML Result Preview */}
+          {htmlResult && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="w-full max-w-4xl mx-auto mt-8"
+            >
+              <div className="bg-white rounded-lg border border-stone-200 shadow-lg p-6">
+                <h3 className="text-lg font-semibold text-stone-900 mb-4">
+                  Generated HTML
+                </h3>
+                <div className="bg-stone-50 rounded-lg p-4 overflow-x-auto max-h-96 overflow-y-auto">
+                  <pre className="text-xs text-stone-700 whitespace-pre-wrap">
+                    {htmlResult}
+                  </pre>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
     </div>
