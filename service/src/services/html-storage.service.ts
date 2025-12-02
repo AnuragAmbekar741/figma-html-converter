@@ -5,13 +5,13 @@ export class HtmlStorageService {
   private readonly outputDir: string;
 
   constructor() {
-    // Create output directory in service root
-    this.outputDir = path.join(process.cwd(), "output");
+    // Create output/html directory in service root
+    this.outputDir = path.join(process.cwd(), "output", "html");
 
     // Ensure directory exists
     if (!fs.existsSync(this.outputDir)) {
       fs.mkdirSync(this.outputDir, { recursive: true });
-      console.log(`Created output directory: ${this.outputDir}`);
+      console.log(`Created HTML output directory: ${this.outputDir}`);
     }
   }
 

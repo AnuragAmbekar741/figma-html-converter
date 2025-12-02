@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotlight</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgba(30, 30, 30, 1);
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            width: 393px;
+            height: 852px;
+            background-color: #FAFAFA;
+            border-radius: 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .home-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            height: 21px;
+            display: flex;
+            justify-content: center;
+        }
+        .home-indicator div {
+            width: 139px;
+            height: 5px;
+            background-color: #2C194D;
+            border-radius: 100px;
+        }
+        .headline {
+            font-size: 48px;
+            font-weight: 700;
+            color: #363341;
+            margin-bottom: 32px;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: auto;
+        }
+        .input-field {
+            width: 100%;
+            height: 58px;
+            padding: 20px;
+            border: 1px solid #D7D7D7;
+            border-radius: 8px 8px 0 0;
+            font-size: 15px;
+            color: #363341;
+        }
+        .input-field:last-child {
+            border-radius: 0 0 8px 8px;
+            border-bottom: none;
+        }
+        .input-field::placeholder {
+            color: #C0C0C0;
+        }
+        .button-primary {
+            width: 100%;
+            height: 46px;
+            background: linear-gradient(90deg, #95228C 0%, #3A3CB3 100%);
+            border-radius: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .button-secondary {
+            width: 100%;
+            height: 46px;
+            background-color: #E1E0E6;
+            border-radius: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #363341;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .forgot-password {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(54, 51, 65, 0.8);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="headline">Sign in</h1>
+        <div class="input-container">
+            <input type="text" class="input-field" placeholder="andy@gmail.com">
+            <input type="password" class="input-field" placeholder="Password">
+        </div>
+        <div class="button-primary">Sign in</div>
+        <div class="button-secondary">Create account</div>
+        <p class="forgot-password">Forgot password</p>
+        <div class="home-indicator">
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>

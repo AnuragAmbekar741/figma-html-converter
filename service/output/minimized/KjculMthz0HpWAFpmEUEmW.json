@@ -1,0 +1,563 @@
+{
+  "fileName": "Spotlight",
+  "canvasBackground": {
+    "r": 0.11764705926179886,
+    "g": 0.11764705926179886,
+    "b": 0.11764705926179886,
+    "a": 1
+  },
+  "pages": [
+    {
+      "id": "0:1",
+      "type": "CANVAS",
+      "name": "Page 1",
+      "backgroundColor": {
+        "r": 0.11764705926179886,
+        "g": 0.11764705926179886,
+        "b": 0.11764705926179886,
+        "a": 1
+      },
+      "backgroundColorHex": "#1E1E1E",
+      "children": [
+        {
+          "id": "1:12",
+          "type": "FRAME",
+          "name": "Frame",
+          "x": 0,
+          "y": 0,
+          "width": 393,
+          "height": 852,
+          "fills": [
+            {
+              "type": "SOLID",
+              "color": {
+                "r": 0.9807692170143127,
+                "g": 0.9807692170143127,
+                "b": 0.9807692170143127,
+                "a": 1
+              },
+              "hex": "#FAFAFA"
+            }
+          ],
+          "backgroundColor": {
+            "r": 0.9807692170143127,
+            "g": 0.9807692170143127,
+            "b": 0.9807692170143127,
+            "a": 1
+          },
+          "backgroundColorHex": "#FAFAFA",
+          "cornerRadius": 32,
+          "clipsContent": true,
+          "constraints": {
+            "vertical": "TOP",
+            "horizontal": "LEFT"
+          },
+          "children": [
+            {
+              "id": "1:13",
+              "type": "FRAME",
+              "name": "Home Indicator",
+              "x": 0,
+              "y": 831,
+              "width": 393,
+              "height": 21,
+              "clipsContent": false,
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              },
+              "children": [
+                {
+                  "id": "1:14",
+                  "type": "RECTANGLE",
+                  "name": "Home Indicator",
+                  "x": 127,
+                  "y": 839,
+                  "width": 139,
+                  "height": 5,
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "r": 0.1725490242242813,
+                        "g": 0.09803921729326248,
+                        "b": 0.3019607961177826,
+                        "a": 1
+                      },
+                      "hex": "#2C194D"
+                    }
+                  ],
+                  "cornerRadius": 100,
+                  "rotation": 3.141592653589793,
+                  "constraints": {
+                    "vertical": "BOTTOM",
+                    "horizontal": "CENTER"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "1:15",
+              "type": "TEXT",
+              "name": "Headline",
+              "x": 32,
+              "y": 170,
+              "width": 154,
+              "height": 58,
+              "characters": "Sign in",
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "r": 0.210520938038826,
+                    "g": 0.19832856953144073,
+                    "b": 0.2546011209487915,
+                    "a": 1
+                  },
+                  "hex": "#363341"
+                }
+              ],
+              "fontSize": 48,
+              "fontFamily": "Inter",
+              "fontWeight": 700,
+              "textAlignHorizontal": "LEFT",
+              "textAlignVertical": "CENTER",
+              "letterSpacing": -0.96,
+              "lineHeightPx": 57.60000228881836,
+              "textAutoResize": "WIDTH_AND_HEIGHT",
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              }
+            },
+            {
+              "id": "1:16",
+              "type": "FRAME",
+              "name": "Frame 1321318736",
+              "x": 32,
+              "y": 252,
+              "width": 329,
+              "height": 117,
+              "layoutMode": "VERTICAL",
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "HUG",
+              "layoutWrap": "NO_WRAP",
+              "counterAxisSizingMode": "FIXED",
+              "clipsContent": false,
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              },
+              "children": [
+                {
+                  "id": "1:17",
+                  "type": "FRAME",
+                  "name": "Frame 1321318734",
+                  "x": 32,
+                  "y": 252,
+                  "width": 329,
+                  "height": 58,
+                  "layoutMode": "HORIZONTAL",
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                  "paddingTop": 20,
+                  "paddingBottom": 20,
+                  "itemSpacing": 10,
+                  "counterAxisAlignItems": "CENTER",
+                  "primaryAxisSizingMode": "FIXED",
+                  "layoutSizingHorizontal": "FILL",
+                  "layoutSizingVertical": "HUG",
+                  "layoutAlign": "STRETCH",
+                  "layoutGrow": 0,
+                  "layoutWrap": "NO_WRAP",
+                  "strokes": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "r": 0.8416842222213745,
+                        "g": 0.8416842222213745,
+                        "b": 0.8416842222213745,
+                        "a": 1
+                      },
+                      "hex": "#D7D7D7"
+                    }
+                  ],
+                  "strokeWeight": 1,
+                  "strokeAlign": "CENTER",
+                  "cornerRadii": [
+                    8,
+                    8,
+                    0,
+                    0
+                  ],
+                  "clipsContent": false,
+                  "constraints": {
+                    "vertical": "TOP",
+                    "horizontal": "LEFT"
+                  },
+                  "children": [
+                    {
+                      "id": "1:18",
+                      "type": "TEXT",
+                      "name": "Headline",
+                      "x": 48,
+                      "y": 272,
+                      "width": 120,
+                      "height": 18,
+                      "characters": "andy@gmail.com",
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "r": 0.210520938038826,
+                            "g": 0.19832856953144073,
+                            "b": 0.2546011209487915,
+                            "a": 1
+                          },
+                          "hex": "#363341"
+                        }
+                      ],
+                      "layoutSizingHorizontal": "HUG",
+                      "layoutSizingVertical": "HUG",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "fontSize": 15,
+                      "fontFamily": "Inter",
+                      "fontWeight": 500,
+                      "textAlignHorizontal": "LEFT",
+                      "textAlignVertical": "CENTER",
+                      "letterSpacing": -0.3,
+                      "lineHeightPx": 18,
+                      "textAutoResize": "WIDTH_AND_HEIGHT",
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "1:19",
+                  "type": "FRAME",
+                  "name": "Frame 1321318735",
+                  "x": 32,
+                  "y": 310,
+                  "width": 329,
+                  "height": 59,
+                  "layoutMode": "HORIZONTAL",
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                  "paddingTop": 20,
+                  "paddingBottom": 20,
+                  "itemSpacing": 10,
+                  "counterAxisAlignItems": "CENTER",
+                  "primaryAxisSizingMode": "FIXED",
+                  "layoutSizingHorizontal": "FILL",
+                  "layoutSizingVertical": "FIXED",
+                  "layoutAlign": "STRETCH",
+                  "layoutGrow": 0,
+                  "layoutWrap": "NO_WRAP",
+                  "counterAxisSizingMode": "FIXED",
+                  "strokes": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "r": 0.8416842222213745,
+                        "g": 0.8416842222213745,
+                        "b": 0.8416842222213745,
+                        "a": 1
+                      },
+                      "hex": "#D7D7D7"
+                    }
+                  ],
+                  "strokeWeight": 1,
+                  "strokeAlign": "CENTER",
+                  "cornerRadii": [
+                    0,
+                    0,
+                    8,
+                    8
+                  ],
+                  "clipsContent": false,
+                  "constraints": {
+                    "vertical": "TOP",
+                    "horizontal": "LEFT"
+                  },
+                  "children": [
+                    {
+                      "id": "1:20",
+                      "type": "TEXT",
+                      "name": "Headline",
+                      "x": 48,
+                      "y": 331,
+                      "width": 69,
+                      "height": 18,
+                      "characters": "Password",
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "r": 0.7515963315963745,
+                            "g": 0.7515963315963745,
+                            "b": 0.7515963315963745,
+                            "a": 1
+                          },
+                          "hex": "#C0C0C0"
+                        }
+                      ],
+                      "layoutSizingHorizontal": "HUG",
+                      "layoutSizingVertical": "HUG",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "fontSize": 15,
+                      "fontFamily": "Inter",
+                      "fontWeight": 500,
+                      "textAlignHorizontal": "LEFT",
+                      "textAlignVertical": "CENTER",
+                      "letterSpacing": -0.3,
+                      "lineHeightPx": 18,
+                      "textAutoResize": "WIDTH_AND_HEIGHT",
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "1:21",
+              "type": "FRAME",
+              "name": "Frame",
+              "x": 16,
+              "y": 662,
+              "width": 361,
+              "height": 46,
+              "fills": [
+                {
+                  "type": "GRADIENT_LINEAR",
+                  "gradientType": "LINEAR",
+                  "gradientStops": [
+                    {
+                      "color": {
+                        "r": 0.5858248472213745,
+                        "g": 0.13204382359981537,
+                        "b": 0.5480096936225891,
+                        "a": 1
+                      },
+                      "hex": "#95228C",
+                      "position": 0
+                    },
+                    {
+                      "color": {
+                        "r": 0.22790934145450592,
+                        "g": 0.23581020534038544,
+                        "b": 0.7019608020782471,
+                        "a": 1
+                      },
+                      "hex": "#3A3CB3",
+                      "position": 1
+                    }
+                  ]
+                }
+              ],
+              "layoutMode": "VERTICAL",
+              "itemSpacing": 8,
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisSizingMode": "FIXED",
+              "effects": [
+                {
+                  "type": "BACKGROUND_BLUR",
+                  "visible": true,
+                  "radius": 10
+                }
+              ],
+              "cornerRadius": 62,
+              "clipsContent": true,
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              },
+              "children": [
+                {
+                  "id": "1:22",
+                  "type": "TEXT",
+                  "name": "label-text",
+                  "x": 172,
+                  "y": 674,
+                  "width": 49,
+                  "height": 22,
+                  "characters": "Sign in",
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "r": 1,
+                        "g": 1,
+                        "b": 1,
+                        "a": 1
+                      },
+                      "hex": "#FFFFFF"
+                    }
+                  ],
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "fontSize": 15,
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "textAlignHorizontal": "CENTER",
+                  "textAlignVertical": "CENTER",
+                  "letterSpacing": -0.15,
+                  "lineHeightPx": 22,
+                  "textAutoResize": "WIDTH_AND_HEIGHT",
+                  "constraints": {
+                    "vertical": "TOP",
+                    "horizontal": "LEFT"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "1:23",
+              "type": "FRAME",
+              "name": "Frame",
+              "x": 16,
+              "y": 720,
+              "width": 361,
+              "height": 46,
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "r": 0.8823529481887817,
+                    "g": 0.8784313797950745,
+                    "b": 0.9019607901573181,
+                    "a": 1
+                  },
+                  "hex": "#E1E0E6"
+                }
+              ],
+              "backgroundColor": {
+                "r": 0.8823529481887817,
+                "g": 0.8784313797950745,
+                "b": 0.9019607901573181,
+                "a": 1
+              },
+              "backgroundColorHex": "#E1E0E6",
+              "layoutMode": "VERTICAL",
+              "itemSpacing": 8,
+              "counterAxisAlignItems": "CENTER",
+              "primaryAxisSizingMode": "FIXED",
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "layoutWrap": "NO_WRAP",
+              "primaryAxisAlignItems": "CENTER",
+              "counterAxisSizingMode": "FIXED",
+              "effects": [
+                {
+                  "type": "BACKGROUND_BLUR",
+                  "visible": true,
+                  "radius": 10
+                }
+              ],
+              "cornerRadius": 62,
+              "clipsContent": true,
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              },
+              "children": [
+                {
+                  "id": "1:24",
+                  "type": "TEXT",
+                  "name": "label-text",
+                  "x": 142,
+                  "y": 732,
+                  "width": 110,
+                  "height": 22,
+                  "characters": "Create account",
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "r": 0.210520938038826,
+                        "g": 0.19832856953144073,
+                        "b": 0.2546011209487915,
+                        "a": 1
+                      },
+                      "hex": "#363341"
+                    }
+                  ],
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "fontSize": 15,
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "textAlignHorizontal": "CENTER",
+                  "textAlignVertical": "CENTER",
+                  "letterSpacing": -0.15,
+                  "lineHeightPx": 22,
+                  "textAutoResize": "WIDTH_AND_HEIGHT",
+                  "constraints": {
+                    "vertical": "TOP",
+                    "horizontal": "LEFT"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "1:25",
+              "type": "TEXT",
+              "name": "Headline",
+              "x": 16,
+              "y": 778,
+              "width": 361,
+              "height": 37,
+              "characters": "Forgot password",
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "r": 0.210520938038826,
+                    "g": 0.19832856953144073,
+                    "b": 0.2546011209487915,
+                    "a": 1
+                  },
+                  "opacity": 0.800000011920929,
+                  "hex": "#363341"
+                }
+              ],
+              "fontSize": 13,
+              "fontFamily": "Inter",
+              "fontWeight": 500,
+              "textAlignHorizontal": "CENTER",
+              "textAlignVertical": "CENTER",
+              "letterSpacing": -0.26,
+              "lineHeightPx": 15.600000381469727,
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalPages": 1,
+    "totalFrames": 7,
+    "totalTextNodes": 6,
+    "totalRectangles": 1
+  }
+}

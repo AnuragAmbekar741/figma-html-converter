@@ -1,0 +1,974 @@
+{
+  "fileName": "Untitled",
+  "canvasBackground": {
+    "r": 0.11764705926179886,
+    "g": 0.11764705926179886,
+    "b": 0.11764705926179886,
+    "a": 1
+  },
+  "pages": [
+    {
+      "id": "0:1",
+      "type": "CANVAS",
+      "name": "Page 1",
+      "backgroundColor": {
+        "r": 0.11764705926179886,
+        "g": 0.11764705926179886,
+        "b": 0.11764705926179886,
+        "a": 1
+      },
+      "backgroundColorHex": "#1E1E1E",
+      "children": [
+        {
+          "id": "1:82",
+          "type": "FRAME",
+          "name": "Frame 14",
+          "x": 53,
+          "y": -74,
+          "width": 420,
+          "height": 505,
+          "layoutMode": "VERTICAL",
+          "itemSpacing": 36,
+          "counterAxisAlignItems": "CENTER",
+          "layoutSizingHorizontal": "HUG",
+          "layoutSizingVertical": "HUG",
+          "layoutWrap": "NO_WRAP",
+          "primaryAxisAlignItems": "CENTER",
+          "clipsContent": false,
+          "constraints": {
+            "vertical": "TOP",
+            "horizontal": "LEFT"
+          },
+          "children": [
+            {
+              "id": "1:83",
+              "type": "FRAME",
+              "name": "Frame 13",
+              "x": 53,
+              "y": -74,
+              "width": 420,
+              "height": 151,
+              "layoutMode": "VERTICAL",
+              "itemSpacing": 32,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "layoutWrap": "NO_WRAP",
+              "clipsContent": false,
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              },
+              "children": [
+                {
+                  "id": "1:84",
+                  "type": "FRAME",
+                  "name": "Frame 2",
+                  "x": 53,
+                  "y": -74,
+                  "width": 367,
+                  "height": 74,
+                  "layoutMode": "VERTICAL",
+                  "itemSpacing": 3,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "layoutWrap": "NO_WRAP",
+                  "primaryAxisAlignItems": "CENTER",
+                  "clipsContent": false,
+                  "constraints": {
+                    "vertical": "TOP",
+                    "horizontal": "LEFT"
+                  },
+                  "children": [
+                    {
+                      "id": "1:85",
+                      "type": "TEXT",
+                      "name": "Login to your Account",
+                      "x": 53,
+                      "y": -74,
+                      "width": 367,
+                      "height": 49,
+                      "characters": "Login to your Account",
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "r": 0.32083332538604736,
+                            "g": 0.32083332538604736,
+                            "b": 0.32083332538604736,
+                            "a": 1
+                          },
+                          "hex": "#525252"
+                        }
+                      ],
+                      "layoutSizingHorizontal": "HUG",
+                      "layoutSizingVertical": "HUG",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "fontSize": 36,
+                      "fontFamily": "Nunito Sans",
+                      "fontWeight": 700,
+                      "textAlignHorizontal": "LEFT",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0,
+                      "lineHeightPx": 49.104000091552734,
+                      "textAutoResize": "WIDTH_AND_HEIGHT",
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      }
+                    },
+                    {
+                      "id": "1:86",
+                      "type": "TEXT",
+                      "name": "See what is going on with your business",
+                      "x": 53,
+                      "y": -22,
+                      "width": 289,
+                      "height": 22,
+                      "characters": "See what is going on with your business",
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "r": 0.32083332538604736,
+                            "g": 0.32083332538604736,
+                            "b": 0.32083332538604736,
+                            "a": 1
+                          },
+                          "hex": "#525252"
+                        }
+                      ],
+                      "layoutSizingHorizontal": "HUG",
+                      "layoutSizingVertical": "HUG",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "fontSize": 16,
+                      "fontFamily": "Nunito Sans",
+                      "fontWeight": 400,
+                      "textAlignHorizontal": "LEFT",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0,
+                      "lineHeightPx": 21.823999404907227,
+                      "textAutoResize": "WIDTH_AND_HEIGHT",
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "1:87",
+                  "type": "FRAME",
+                  "name": "Frame 1",
+                  "x": 53,
+                  "y": 32,
+                  "width": 420,
+                  "height": 45,
+                  "layoutMode": "HORIZONTAL",
+                  "paddingLeft": 10,
+                  "paddingRight": 10,
+                  "paddingTop": 10,
+                  "paddingBottom": 10,
+                  "itemSpacing": 13,
+                  "counterAxisAlignItems": "CENTER",
+                  "primaryAxisSizingMode": "FIXED",
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "HUG",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "layoutWrap": "NO_WRAP",
+                  "primaryAxisAlignItems": "CENTER",
+                  "strokes": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "r": 0.9083333611488342,
+                        "g": 0.9083333611488342,
+                        "b": 0.9083333611488342,
+                        "a": 1
+                      },
+                      "hex": "#E8E8E8"
+                    }
+                  ],
+                  "strokeWeight": 1,
+                  "strokeAlign": "INSIDE",
+                  "cornerRadius": 5,
+                  "clipsContent": false,
+                  "constraints": {
+                    "vertical": "TOP",
+                    "horizontal": "LEFT"
+                  },
+                  "children": [
+                    {
+                      "id": "1:88",
+                      "type": "RECTANGLE",
+                      "name": "image 2",
+                      "x": 173,
+                      "y": 42,
+                      "width": 25,
+                      "height": 25,
+                      "layoutSizingHorizontal": "FIXED",
+                      "layoutSizingVertical": "FIXED",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "cornerRadius": 10,
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      }
+                    },
+                    {
+                      "id": "1:89",
+                      "type": "TEXT",
+                      "name": "Continue with Google",
+                      "x": 211,
+                      "y": 45,
+                      "width": 142,
+                      "height": 19,
+                      "characters": "Continue with Google",
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "r": 0.5098039507865906,
+                            "g": 0.5098039507865906,
+                            "b": 0.5098039507865906,
+                            "a": 1
+                          },
+                          "hex": "#828282"
+                        }
+                      ],
+                      "layoutSizingHorizontal": "HUG",
+                      "layoutSizingVertical": "HUG",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "fontSize": 14,
+                      "fontFamily": "Nunito Sans",
+                      "fontWeight": 700,
+                      "textAlignHorizontal": "LEFT",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0,
+                      "lineHeightPx": 19.095998764038086,
+                      "textAutoResize": "WIDTH_AND_HEIGHT",
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "1:90",
+              "type": "TEXT",
+              "name": "------------- or Sign in with Email -------------",
+              "x": 136,
+              "y": 113,
+              "width": 254,
+              "height": 16,
+              "characters": "------------- or Sign in with Email ------------- ",
+              "fills": [
+                {
+                  "type": "SOLID",
+                  "color": {
+                    "r": 0.6313725709915161,
+                    "g": 0.6313725709915161,
+                    "b": 0.6313725709915161,
+                    "a": 1
+                  },
+                  "hex": "#A1A1A1"
+                }
+              ],
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "fontSize": 12,
+              "fontFamily": "Nunito Sans",
+              "fontWeight": 600,
+              "textAlignHorizontal": "LEFT",
+              "textAlignVertical": "TOP",
+              "letterSpacing": 0,
+              "lineHeightPx": 16.368000030517578,
+              "textAutoResize": "WIDTH_AND_HEIGHT",
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              }
+            },
+            {
+              "id": "1:91",
+              "type": "FRAME",
+              "name": "Frame 12",
+              "x": 53,
+              "y": 165,
+              "width": 420,
+              "height": 266,
+              "layoutMode": "VERTICAL",
+              "itemSpacing": 32,
+              "layoutSizingHorizontal": "HUG",
+              "layoutSizingVertical": "HUG",
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "layoutWrap": "NO_WRAP",
+              "clipsContent": false,
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              },
+              "children": [
+                {
+                  "id": "1:92",
+                  "type": "FRAME",
+                  "name": "Frame 11",
+                  "x": 53,
+                  "y": 165,
+                  "width": 420,
+                  "height": 184,
+                  "layoutMode": "VERTICAL",
+                  "itemSpacing": 24,
+                  "layoutSizingHorizontal": "HUG",
+                  "layoutSizingVertical": "HUG",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "layoutWrap": "NO_WRAP",
+                  "clipsContent": false,
+                  "constraints": {
+                    "vertical": "TOP",
+                    "horizontal": "LEFT"
+                  },
+                  "children": [
+                    {
+                      "id": "1:93",
+                      "type": "FRAME",
+                      "name": "Frame 5",
+                      "x": 53,
+                      "y": 165,
+                      "width": 420,
+                      "height": 68,
+                      "layoutMode": "VERTICAL",
+                      "itemSpacing": 4,
+                      "layoutSizingHorizontal": "HUG",
+                      "layoutSizingVertical": "HUG",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "layoutWrap": "NO_WRAP",
+                      "clipsContent": false,
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      },
+                      "children": [
+                        {
+                          "id": "1:94",
+                          "type": "TEXT",
+                          "name": "Email",
+                          "x": 53,
+                          "y": 165,
+                          "width": 36,
+                          "height": 19,
+                          "characters": "Email",
+                          "fills": [
+                            {
+                              "type": "SOLID",
+                              "color": {
+                                "r": 0.5098039507865906,
+                                "g": 0.5098039507865906,
+                                "b": 0.5098039507865906,
+                                "a": 1
+                              },
+                              "hex": "#828282"
+                            }
+                          ],
+                          "layoutSizingHorizontal": "HUG",
+                          "layoutSizingVertical": "HUG",
+                          "layoutAlign": "INHERIT",
+                          "layoutGrow": 0,
+                          "fontSize": 14,
+                          "fontFamily": "Nunito Sans",
+                          "fontWeight": 600,
+                          "textAlignHorizontal": "LEFT",
+                          "textAlignVertical": "TOP",
+                          "letterSpacing": 0,
+                          "lineHeightPx": 19.095998764038086,
+                          "textAutoResize": "WIDTH_AND_HEIGHT",
+                          "constraints": {
+                            "vertical": "TOP",
+                            "horizontal": "LEFT"
+                          }
+                        },
+                        {
+                          "id": "1:95",
+                          "type": "FRAME",
+                          "name": "Frame 3",
+                          "x": 53,
+                          "y": 188,
+                          "width": 420,
+                          "height": 45,
+                          "layoutMode": "HORIZONTAL",
+                          "paddingLeft": 10,
+                          "paddingRight": 10,
+                          "paddingTop": 13,
+                          "paddingBottom": 13,
+                          "itemSpacing": 13,
+                          "counterAxisAlignItems": "CENTER",
+                          "primaryAxisSizingMode": "FIXED",
+                          "layoutSizingHorizontal": "FIXED",
+                          "layoutSizingVertical": "HUG",
+                          "layoutAlign": "INHERIT",
+                          "layoutGrow": 0,
+                          "layoutWrap": "NO_WRAP",
+                          "strokes": [
+                            {
+                              "type": "SOLID",
+                              "color": {
+                                "r": 0.8708333373069763,
+                                "g": 0.8236631751060486,
+                                "b": 0.8517532348632812,
+                                "a": 1
+                              },
+                              "hex": "#DED2D9"
+                            }
+                          ],
+                          "strokeWeight": 1,
+                          "strokeAlign": "INSIDE",
+                          "cornerRadius": 5,
+                          "clipsContent": false,
+                          "constraints": {
+                            "vertical": "TOP",
+                            "horizontal": "LEFT"
+                          },
+                          "children": [
+                            {
+                              "id": "1:96",
+                              "type": "TEXT",
+                              "name": "mail@abc.com",
+                              "x": 63,
+                              "y": 201,
+                              "width": 92,
+                              "height": 19,
+                              "characters": "mail@abc.com",
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "r": 0.8784313797950745,
+                                    "g": 0.8784313797950745,
+                                    "b": 0.8784313797950745,
+                                    "a": 1
+                                  },
+                                  "hex": "#E0E0E0"
+                                }
+                              ],
+                              "layoutSizingHorizontal": "HUG",
+                              "layoutSizingVertical": "HUG",
+                              "layoutAlign": "INHERIT",
+                              "layoutGrow": 0,
+                              "fontSize": 14,
+                              "fontFamily": "Nunito Sans",
+                              "fontWeight": 400,
+                              "textAlignHorizontal": "LEFT",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0,
+                              "lineHeightPx": 19.095998764038086,
+                              "textAutoResize": "WIDTH_AND_HEIGHT",
+                              "constraints": {
+                                "vertical": "TOP",
+                                "horizontal": "LEFT"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "1:97",
+                      "type": "FRAME",
+                      "name": "Frame 9",
+                      "x": 53,
+                      "y": 257,
+                      "width": 420,
+                      "height": 92,
+                      "layoutMode": "VERTICAL",
+                      "itemSpacing": 8,
+                      "layoutSizingHorizontal": "HUG",
+                      "layoutSizingVertical": "HUG",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "layoutWrap": "NO_WRAP",
+                      "clipsContent": false,
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      },
+                      "children": [
+                        {
+                          "id": "1:98",
+                          "type": "FRAME",
+                          "name": "Frame 6",
+                          "x": 53,
+                          "y": 257,
+                          "width": 420,
+                          "height": 68,
+                          "layoutMode": "VERTICAL",
+                          "itemSpacing": 4,
+                          "layoutSizingHorizontal": "HUG",
+                          "layoutSizingVertical": "HUG",
+                          "layoutAlign": "INHERIT",
+                          "layoutGrow": 0,
+                          "layoutWrap": "NO_WRAP",
+                          "clipsContent": false,
+                          "constraints": {
+                            "vertical": "TOP",
+                            "horizontal": "LEFT"
+                          },
+                          "children": [
+                            {
+                              "id": "1:99",
+                              "type": "TEXT",
+                              "name": "Password",
+                              "x": 53,
+                              "y": 257,
+                              "width": 63,
+                              "height": 19,
+                              "characters": "Password",
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "r": 0.5098039507865906,
+                                    "g": 0.5098039507865906,
+                                    "b": 0.5098039507865906,
+                                    "a": 1
+                                  },
+                                  "hex": "#828282"
+                                }
+                              ],
+                              "layoutSizingHorizontal": "HUG",
+                              "layoutSizingVertical": "HUG",
+                              "layoutAlign": "INHERIT",
+                              "layoutGrow": 0,
+                              "fontSize": 14,
+                              "fontFamily": "Nunito Sans",
+                              "fontWeight": 600,
+                              "textAlignHorizontal": "LEFT",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0,
+                              "lineHeightPx": 19.095998764038086,
+                              "textAutoResize": "WIDTH_AND_HEIGHT",
+                              "constraints": {
+                                "vertical": "TOP",
+                                "horizontal": "LEFT"
+                              }
+                            },
+                            {
+                              "id": "1:100",
+                              "type": "FRAME",
+                              "name": "Frame 4",
+                              "x": 53,
+                              "y": 280,
+                              "width": 420,
+                              "height": 45,
+                              "layoutMode": "HORIZONTAL",
+                              "paddingLeft": 10,
+                              "paddingRight": 10,
+                              "paddingTop": 18,
+                              "paddingBottom": 13,
+                              "itemSpacing": 13,
+                              "counterAxisAlignItems": "CENTER",
+                              "primaryAxisSizingMode": "FIXED",
+                              "layoutSizingHorizontal": "FIXED",
+                              "layoutSizingVertical": "HUG",
+                              "layoutAlign": "INHERIT",
+                              "layoutGrow": 0,
+                              "layoutWrap": "NO_WRAP",
+                              "strokes": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "r": 0.8708333373069763,
+                                    "g": 0.8236631751060486,
+                                    "b": 0.8517532348632812,
+                                    "a": 1
+                                  },
+                                  "hex": "#DED2D9"
+                                }
+                              ],
+                              "strokeWeight": 1,
+                              "strokeAlign": "INSIDE",
+                              "cornerRadius": 5,
+                              "clipsContent": false,
+                              "constraints": {
+                                "vertical": "TOP",
+                                "horizontal": "LEFT"
+                              },
+                              "children": [
+                                {
+                                  "id": "1:101",
+                                  "type": "TEXT",
+                                  "name": "*****************",
+                                  "x": 63,
+                                  "y": 298,
+                                  "width": 77,
+                                  "height": 14,
+                                  "characters": "*****************",
+                                  "fills": [
+                                    {
+                                      "type": "SOLID",
+                                      "color": {
+                                        "r": 0.8784313797950745,
+                                        "g": 0.8784313797950745,
+                                        "b": 0.8784313797950745,
+                                        "a": 1
+                                      },
+                                      "hex": "#E0E0E0"
+                                    }
+                                  ],
+                                  "layoutSizingHorizontal": "HUG",
+                                  "layoutSizingVertical": "HUG",
+                                  "layoutAlign": "INHERIT",
+                                  "layoutGrow": 0,
+                                  "fontSize": 10,
+                                  "fontFamily": "Nunito Sans",
+                                  "fontWeight": 400,
+                                  "textAlignHorizontal": "LEFT",
+                                  "textAlignVertical": "TOP",
+                                  "letterSpacing": 0,
+                                  "lineHeightPx": 13.639999389648438,
+                                  "textAutoResize": "WIDTH_AND_HEIGHT",
+                                  "constraints": {
+                                    "vertical": "TOP",
+                                    "horizontal": "LEFT"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "1:102",
+                          "type": "FRAME",
+                          "name": "Frame 8",
+                          "x": 53,
+                          "y": 333,
+                          "width": 420,
+                          "height": 16,
+                          "layoutMode": "HORIZONTAL",
+                          "itemSpacing": 222,
+                          "layoutSizingHorizontal": "HUG",
+                          "layoutSizingVertical": "HUG",
+                          "layoutAlign": "INHERIT",
+                          "layoutGrow": 0,
+                          "layoutWrap": "NO_WRAP",
+                          "clipsContent": false,
+                          "constraints": {
+                            "vertical": "TOP",
+                            "horizontal": "LEFT"
+                          },
+                          "children": [
+                            {
+                              "id": "1:103",
+                              "type": "FRAME",
+                              "name": "Checkbox",
+                              "x": 53,
+                              "y": 333,
+                              "width": 99,
+                              "height": 16,
+                              "layoutMode": "HORIZONTAL",
+                              "itemSpacing": 8,
+                              "counterAxisAlignItems": "CENTER",
+                              "layoutSizingHorizontal": "HUG",
+                              "layoutSizingVertical": "HUG",
+                              "layoutAlign": "INHERIT",
+                              "layoutGrow": 0,
+                              "layoutWrap": "NO_WRAP",
+                              "primaryAxisAlignItems": "CENTER",
+                              "clipsContent": false,
+                              "constraints": {
+                                "vertical": "TOP",
+                                "horizontal": "LEFT"
+                              },
+                              "children": [
+                                {
+                                  "id": "1:104",
+                                  "type": "INSTANCE",
+                                  "name": "Check",
+                                  "x": 53,
+                                  "y": 335,
+                                  "width": 12,
+                                  "height": 12,
+                                  "layoutSizingHorizontal": "FIXED",
+                                  "layoutSizingVertical": "FIXED",
+                                  "layoutAlign": "INHERIT",
+                                  "layoutGrow": 0,
+                                  "clipsContent": false,
+                                  "constraints": {
+                                    "vertical": "TOP",
+                                    "horizontal": "LEFT"
+                                  },
+                                  "children": [
+                                    {
+                                      "id": "I1:104;473:92713",
+                                      "type": "RECTANGLE",
+                                      "name": "Icon/Checkbox/Unfilled",
+                                      "x": 53,
+                                      "y": 335,
+                                      "width": 12,
+                                      "height": 12,
+                                      "fills": [
+                                        {
+                                          "type": "SOLID",
+                                          "color": {
+                                            "r": 0.49803921580314636,
+                                            "g": 0.14901961386203766,
+                                            "b": 0.35686275362968445,
+                                            "a": 1
+                                          },
+                                          "hex": "#7F265B"
+                                        }
+                                      ],
+                                      "strokes": [
+                                        {
+                                          "type": "SOLID",
+                                          "color": {
+                                            "r": 0.49803921580314636,
+                                            "g": 0.14901961386203766,
+                                            "b": 0.35686275362968445,
+                                            "a": 1
+                                          },
+                                          "hex": "#7F265B"
+                                        }
+                                      ],
+                                      "strokeWeight": 2,
+                                      "strokeAlign": "INSIDE",
+                                      "cornerRadius": 2,
+                                      "constraints": {
+                                        "vertical": "SCALE",
+                                        "horizontal": "SCALE"
+                                      }
+                                    },
+                                    {
+                                      "id": "I1:104;473:92714",
+                                      "type": "FRAME",
+                                      "name": "check-solid 2",
+                                      "x": 54,
+                                      "y": 336,
+                                      "width": 10,
+                                      "height": 10,
+                                      "clipsContent": true,
+                                      "constraints": {
+                                        "vertical": "SCALE",
+                                        "horizontal": "SCALE"
+                                      },
+                                      "children": [
+                                        {
+                                          "id": "I1:104;473:92715",
+                                          "type": "INSTANCE",
+                                          "name": "Icons / Navigation/Others/10/Check",
+                                          "x": 55,
+                                          "y": 337,
+                                          "width": 8,
+                                          "height": 8,
+                                          "clipsContent": true,
+                                          "constraints": {
+                                            "vertical": "TOP",
+                                            "horizontal": "LEFT"
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "1:105",
+                                  "type": "TEXT",
+                                  "name": "Remember Me",
+                                  "x": 73,
+                                  "y": 333,
+                                  "width": 79,
+                                  "height": 16,
+                                  "characters": "Remember Me",
+                                  "fills": [
+                                    {
+                                      "type": "SOLID",
+                                      "color": {
+                                        "r": 0.6313725709915161,
+                                        "g": 0.6313725709915161,
+                                        "b": 0.6313725709915161,
+                                        "a": 1
+                                      },
+                                      "hex": "#A1A1A1"
+                                    }
+                                  ],
+                                  "layoutSizingHorizontal": "HUG",
+                                  "layoutSizingVertical": "HUG",
+                                  "layoutAlign": "INHERIT",
+                                  "layoutGrow": 0,
+                                  "fontSize": 12,
+                                  "fontFamily": "Nunito Sans",
+                                  "fontWeight": 400,
+                                  "textAlignHorizontal": "LEFT",
+                                  "textAlignVertical": "TOP",
+                                  "letterSpacing": 0,
+                                  "lineHeightPx": 16.368000030517578,
+                                  "textAutoResize": "WIDTH_AND_HEIGHT",
+                                  "constraints": {
+                                    "vertical": "CENTER",
+                                    "horizontal": "LEFT_RIGHT"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "1:106",
+                              "type": "TEXT",
+                              "name": "Forgot Password?",
+                              "x": 374,
+                              "y": 333,
+                              "width": 99,
+                              "height": 16,
+                              "characters": "Forgot Password?",
+                              "fills": [
+                                {
+                                  "type": "SOLID",
+                                  "color": {
+                                    "r": 0.49803921580314636,
+                                    "g": 0.14901961386203766,
+                                    "b": 0.35686275362968445,
+                                    "a": 1
+                                  },
+                                  "hex": "#7F265B"
+                                }
+                              ],
+                              "layoutSizingHorizontal": "HUG",
+                              "layoutSizingVertical": "HUG",
+                              "layoutAlign": "INHERIT",
+                              "layoutGrow": 0,
+                              "fontSize": 12,
+                              "fontFamily": "Nunito Sans",
+                              "fontWeight": 600,
+                              "textAlignHorizontal": "LEFT",
+                              "textAlignVertical": "TOP",
+                              "letterSpacing": 0,
+                              "lineHeightPx": 16.368000030517578,
+                              "textAutoResize": "WIDTH_AND_HEIGHT",
+                              "constraints": {
+                                "vertical": "CENTER",
+                                "horizontal": "LEFT_RIGHT"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "1:107",
+                  "type": "FRAME",
+                  "name": "Frame 7",
+                  "x": 53,
+                  "y": 381,
+                  "width": 420,
+                  "height": 50,
+                  "fills": [
+                    {
+                      "type": "SOLID",
+                      "color": {
+                        "r": 0.49803921580314636,
+                        "g": 0.14901961386203766,
+                        "b": 0.35686275362968445,
+                        "a": 1
+                      },
+                      "hex": "#7F265B"
+                    }
+                  ],
+                  "backgroundColor": {
+                    "r": 0.49803921580314636,
+                    "g": 0.14901961386203766,
+                    "b": 0.35686275362968445,
+                    "a": 1
+                  },
+                  "backgroundColorHex": "#7F265B",
+                  "layoutMode": "HORIZONTAL",
+                  "paddingLeft": 10,
+                  "paddingRight": 10,
+                  "paddingTop": 13,
+                  "paddingBottom": 12,
+                  "itemSpacing": 13,
+                  "counterAxisAlignItems": "CENTER",
+                  "primaryAxisSizingMode": "FIXED",
+                  "layoutSizingHorizontal": "FIXED",
+                  "layoutSizingVertical": "HUG",
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "layoutWrap": "NO_WRAP",
+                  "primaryAxisAlignItems": "CENTER",
+                  "cornerRadius": 6,
+                  "clipsContent": false,
+                  "constraints": {
+                    "vertical": "TOP",
+                    "horizontal": "LEFT"
+                  },
+                  "children": [
+                    {
+                      "id": "1:108",
+                      "type": "TEXT",
+                      "name": "Login",
+                      "x": 239,
+                      "y": 394,
+                      "width": 48,
+                      "height": 25,
+                      "characters": "Login",
+                      "fills": [
+                        {
+                          "type": "SOLID",
+                          "color": {
+                            "r": 1,
+                            "g": 1,
+                            "b": 1,
+                            "a": 1
+                          },
+                          "hex": "#FFFFFF"
+                        }
+                      ],
+                      "layoutSizingHorizontal": "HUG",
+                      "layoutSizingVertical": "HUG",
+                      "layoutAlign": "INHERIT",
+                      "layoutGrow": 0,
+                      "fontSize": 18,
+                      "fontFamily": "Nunito Sans",
+                      "fontWeight": 800,
+                      "textAlignHorizontal": "LEFT",
+                      "textAlignVertical": "TOP",
+                      "letterSpacing": 0,
+                      "lineHeightPx": 24.552000045776367,
+                      "textAutoResize": "WIDTH_AND_HEIGHT",
+                      "constraints": {
+                        "vertical": "TOP",
+                        "horizontal": "LEFT"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalPages": 1,
+    "totalFrames": 17,
+    "totalTextNodes": 11,
+    "totalRectangles": 2
+  }
+}

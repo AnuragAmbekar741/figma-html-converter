@@ -1,29 +1,61 @@
 import { ChatOpenAI } from "@langchain/openai";
+import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { langchainConfig } from "../config/langchain.config";
 import { FigmaExtractorService } from "./figma-extractor.service";
+import { getPromptTwo } from "../utils/prompt";
+
+type LLMProvider = ChatOpenAI | ChatGoogleGenerativeAI;
 
 export class LangChainService {
-  private llm: ChatOpenAI;
+  private llm: LLMProvider;
+  private provider: "openai" | "gemini";
   private figmaExtractor: FigmaExtractorService;
 
-  constructor() {
-    if (!langchainConfig.openaiApiKey) {
-      throw new Error("OPENAI_API_KEY is not set in environment variables");
-    }
+  constructor(provider?: "openai" | "gemini") {
+    // Use provided provider or default from config
+    this.provider =
+      provider || (langchainConfig.provider as "openai" | "gemini") || "gemini";
 
-    this.llm = new ChatOpenAI({
-      modelName: langchainConfig.modelName,
-      temperature: langchainConfig.temperature,
-      maxTokens: langchainConfig.maxTokens,
-      openAIApiKey: langchainConfig.openaiApiKey,
-    });
+    if (this.provider === "openai") {
+      if (!langchainConfig.openaiApiKey) {
+        throw new Error("OPENAI_API_KEY is not set in environment variables");
+      }
+
+      this.llm = new ChatOpenAI({
+        modelName: langchainConfig.openaiModelName,
+        temperature: langchainConfig.openaiTemperature,
+        maxTokens: langchainConfig.openaiMaxTokens,
+        openAIApiKey: langchainConfig.openaiApiKey,
+      });
+      console.log(
+        `[LangChain] Using OpenAI model: ${langchainConfig.openaiModelName}`
+      );
+    } else {
+      if (!langchainConfig.googleApiKey) {
+        throw new Error("GOOGLE_API_KEY is not set in environment variables");
+      }
+
+      this.llm = new ChatGoogleGenerativeAI({
+        model: langchainConfig.geminiModelName,
+        temperature: langchainConfig.geminiTemperature,
+        maxOutputTokens: langchainConfig.geminiMaxTokens,
+        apiKey: langchainConfig.googleApiKey,
+      });
+      console.log(
+        `[LangChain] Using Gemini model: ${langchainConfig.geminiModelName}`
+      );
+    }
 
     // Initialize Figma extractor service
     this.figmaExtractor = new FigmaExtractorService();
   }
 
-  getLLM(): ChatOpenAI {
+  getLLM(): LLMProvider {
     return this.llm;
+  }
+
+  getProvider(): "openai" | "gemini" {
+    return this.provider;
   }
 
   async testConnection(): Promise<string> {
@@ -102,67 +134,29 @@ export class LangChainService {
       "characters"
     );
     console.log("Extracted data size:", figmaJSON.length, "characters");
+    console.log(`[LangChain] Using ${this.provider} for conversion`);
 
     // Step 3: Create prompt with extracted data
-    const prompt = `Convert this extracted Figma design data to a complete HTML page with inline CSS.
+    const prompt = `
+ROLE:
+YOU ARE AN EXPERT FRONT-END ENGINEER.
+YOUR JOB IS TO CONVERT THE GIVEN Figma JSON (FROM Figma get-file API) INTO ONE HTML PAGE THAT MATCHES THE DESIGN EXACTLY.
 
-## DATA FORMAT
-The JSON contains a "pages" array. Each page has nodes with these properties:
-- type: DOCUMENT, CANVAS, FRAME, TEXT, RECTANGLE
-- x, y: absolute position in pixels
-- width, height: dimensions in pixels
-- fills: array of backgrounds (SOLID with {r,g,b,a} 0-1 range and optional hex, or GRADIENT_LINEAR/GRADIENT_RADIAL with gradientStops)
-- backgroundColor: background color for FRAME nodes (with optional backgroundColorHex)
-- strokes: border colors (with hex), strokeWeight: border width
-- cornerRadius or cornerRadii: [topLeft, topRight, bottomRight, bottomLeft]
-- characters: text content (for TEXT nodes)
-- fontSize, fontFamily, fontWeight, textAlignHorizontal, letterSpacing, lineHeightPx: typography
-- layoutMode: "VERTICAL" or "HORIZONTAL" (flexbox direction)
-- paddingLeft/Right/Top/Bottom, itemSpacing: spacing
-- children: nested nodes
-- opacity: transparency (0-1)
-- effects: shadows/blurs (optional)
+PROCESS:
+1. Understand the design and the json input and what you need to do to build eg form, landing page, etc.
+2. This will help you to build the html accordingly and choose the right html elements and css properties.
+3. Make sure you map exact figma json to html elements and css properties.
+4. Build the html accordingly and choose the right html elements and css properties.
+5. Make sure all child nodes are mapped to parent nodes in right direction.
+6. Make sure spacing from x and y direction to child frames are mapped with input json wrt to parent frames.
+6. Map cornerRadii [a,b,c,d] → border-radius: apx bpx cpx dpx (top-left, top-right, bottom-right, bottom-left)
+7. Do not add any unnecessary spaces between element if not present in input json.
 
-## CONVERSION RULES
-1. Colors: Use hex values if provided, otherwise convert {r,g,b,a} (0-1 range) to CSS rgba(). Formula: rgba(r*255, g*255, b*255, a)
-2. Gradients: Convert gradientStops to CSS linear-gradient. Use position (0-1) as percentage. Use hex if available.
-3. Position: Use position:absolute with left:Xpx, top:Ypx relative to parent FRAME
-4. The root FRAME should be centered on page using flexbox on body
-5. Use canvasBackground for body background color (from first page)
-6. cornerRadii [a,b,c,d] → border-radius: apx bpx cpx dpx (top-left, top-right, bottom-right, bottom-left)
-7. layoutMode:"VERTICAL" → display:flex; flex-direction:column
-8. layoutMode:"HORIZONTAL" → display:flex; flex-direction:row
-9. itemSpacing → gap property for flex children
-10. Skip DOCUMENT and CANVAS nodes - start from first FRAME in pages[0]
-11. Use semantic HTML: h1 for large headlines, button for clickable elements, input for form fields
-12. Apply opacity if present: opacity: value
-13. Apply effects (shadows) if present: box-shadow for DROP_SHADOW effects. Skip BACKGROUND_BLUR effects.
+OUTPUT:
+Return ONLY a full HTML document (<!DOCTYPE html>…</html>) with inline styles (+ the single optional <style> block / <link>).
+No markdown, no commentary.
 
-## SPECIAL HANDLING FOR INPUT FIELDS
-When a FRAME node has:
-- A stroke (border) AND
-- Contains only one child which is a TEXT node AND
-- The parent is a VERTICAL layout FRAME containing multiple such frames
-
-Then convert it to an <input> element:
-- Use the TEXT node's "characters" as the placeholder attribute
-- Use the TEXT node's color (from fills) for the placeholder color via ::placeholder CSS
-- Apply the FRAME's cornerRadii to the input's border-radius
-- Apply the FRAME's stroke color and strokeWeight as the input's border
-- Apply the FRAME's paddingLeft/Right/Top/Bottom as the input's padding
-- Position the input using the FRAME's x, y, width, height
-- The parent VERTICAL FRAME should be a container div (not an input group)
-
-## NESTED STRUCTURE HANDLING
-- When a FRAME contains only a TEXT node, consider if it should be an input field (see above) or just a text element
-- For buttons: If a FRAME has a gradient/solid fill and contains a TEXT node, convert to <button> with the text as button content
-- Preserve the hierarchy: parent FRAME → child FRAME → TEXT node should be converted appropriately based on context
-
-## OUTPUT FORMAT
-Return ONLY valid HTML starting with <!DOCTYPE html> and ending with </html>.
-NO markdown code blocks. NO explanations. NO text before or after the HTML.
-
-## FIGMA DATA
+FIGMA JSON:
 ${figmaJSON}`;
 
     try {
@@ -180,3 +174,34 @@ ${figmaJSON}`;
     }
   }
 }
+
+// ROLE
+// Expert front-end engineer. Convert the Figma JSON into ONE HTML page that matches the design EXACTLY. Use inline styles; allow ONE tiny <style> block for ::placeholder and UA resets (and a Google Fonts <link> if allowed).
+
+// HARD RULES
+// - 1:1 node→element. No invented content. Use px positions/sizes from absoluteBoundingBox. Center the root frame in <body> (flex, min-height:100vh). Root is position:relative with the frame’s size. Z-order = child order. If a style is missing, skip it.
+
+// RENDERING
+// - Colors: prefer hex; else rgba(round(r*255),round(g*255),round(b*255),a).
+// - Fills: SOLID→background-color; GRADIENT_*→background-image using gradientStops (pos×100%); angle from gradientHandlePositions when present, else 135deg.
+// - Strokes: border: strokeWeight px solid <strokeColor>. Corners: cornerRadius or [tl,tr,br,bl]→border-radius.
+// - Opacity→opacity. DROP/INNER_SHADOW→box-shadow. Ignore blurs.
+// - Auto-layout: display:flex; flex-direction from layoutMode; padding from padding*; gap from itemSpacing; align from axis settings.
+// - TEXT: render characters; escape HTML; apply fontFamily, fontSize, fontWeight, lineHeightPx, letterSpacing, color, text-align.
+
+// FONTS (STRICT)
+// - Collect families+weights from TEXT nodes; include ONE Google Fonts <link> (display=swap) and apply to all elements & ::placeholder. If links disallowed, still apply exact family + fallback stack.
+
+// PLACEHOLDER vs REAL TEXT (STRICT)
+// - If a light/low-contrast TEXT node (e.g., #E0E0E0/#D9D9D9/#BDBDBD/#A1A1A1 or opacity<1), named “placeholder/hint”, or sample-like (“mail@…”, “Password”, “••••”, “*******”) is INSIDE an input rectangle:
+//     → Use it as <input placeholder="…">; do NOT overlay text. Style ::placeholder to match JSON.
+// - Labels ABOVE/OUTSIDE the rectangle or higher-contrast label colors (e.g., #828282) → <label for="…">.
+// - Inputs have empty value unless JSON encodes a real value.
+
+// MICRO-POLISH (non-visual only)
+// - You may add: fex design micro polish rules.
+
+// OUTPUT
+// Return ONLY a full HTML document (<!DOCTYPE html>…</html>) with inline styles (+ the single optional <style> block / <link>). No markdown, no commentary.
+
+// FIGMA JSON:

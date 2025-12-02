@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotlight</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1E1E1E;
+            margin: 0;
+        }
+        .frame {
+            width: 393px;
+            height: 852px;
+            background-color: #FAFAFA;
+            border-radius: 32px;
+            position: relative;
+        }
+        .home-indicator {
+            position: absolute;
+            bottom: 21px;
+            left: 0;
+            width: 393px;
+            height: 21px;
+        }
+        .home-indicator-rect {
+            position: absolute;
+            left: 127px;
+            top: 839px;
+            width: 139px;
+            height: 5px;
+            background-color: #2C194D;
+            border-radius: 100px;
+            transform: rotate(180deg);
+        }
+        .headline {
+            position: absolute;
+            top: 170px;
+            left: 32px;
+            width: 154px;
+            height: 58px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 48px;
+            color: #363341;
+            line-height: 57.6px;
+            letter-spacing: -0.96px;
+        }
+        .input-frame {
+            position: absolute;
+            top: 252px;
+            left: 32px;
+            width: 329px;
+            display: flex;
+            flex-direction: row;
+            padding: 20px 16px;
+            align-items: center;
+            border: 1px solid #D7D7D7;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .input-email {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            color: #363341;
+            line-height: 18px;
+            letter-spacing: -0.3px;
+        }
+        .input-password {
+            position: relative;
+            padding: 20px 16px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #D7D7D7;
+            border-radius: 0 0 8px 8px;
+        }
+        .password-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            color: #C0C0C0;
+            line-height: 18px;
+            letter-spacing: -0.3px;
+        }
+        .sign-in-button {
+            position: absolute;
+            top: 662px;
+            left: 16px;
+            width: 361px;
+            height: 46px;
+            background: linear-gradient(90deg, #95228C 0%, #3A3CB3 100%);
+            border-radius: 62px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .sign-in-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: #FFFFFF;
+            line-height: 22px;
+            letter-spacing: -0.15px;
+        }
+        .create-account-button {
+            position: absolute;
+            top: 720px;
+            left: 16px;
+            width: 361px;
+            height: 46px;
+            background-color: #E1E0E6;
+            border-radius: 62px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .create-account-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: #363341;
+            line-height: 22px;
+            letter-spacing: -0.15px;
+        }
+        .forgot-password {
+            position: absolute;
+            top: 778px;
+            left: 16px;
+            width: 361px;
+            height: 37px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            color: rgba(54, 51, 65, 0.8);
+            line-height: 15.6px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="home-indicator">
+            <div class="home-indicator-rect"></div>
+        </div>
+        <div class="headline">Sign in</div>
+        <div class="input-frame">
+            <div class="input-email">andy@gmail.com</div>
+        </div>
+        <div class="input-password">
+            <div class="password-label">Password</div>
+        </div>
+        <div class="sign-in-button">
+            <div class="sign-in-text">Sign in</div>
+        </div>
+        <div class="create-account-button">
+            <div class="create-account-text">Create account</div>
+        </div>
+        <div class="forgot-password">Forgot password</div>
+    </div>
+</body>
+</html>

@@ -13,6 +13,9 @@ const HomeView: React.FC = () => {
   const [fileKey, setFileKey] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
   const [htmlResult, setHtmlResult] = useState<string | null>(null);
+  const [selectedModel, setSelectedModel] = useState<"openai" | "gemini">(
+    "gemini"
+  ); // Default to Gemini
 
   const {
     data,
@@ -46,7 +49,13 @@ const HomeView: React.FC = () => {
 
   // Mutation for converting to HTML
   const convertMutation = useMutation({
-    mutationFn: (key: string) => convertFigmaFileToHTML(key),
+    mutationFn: ({
+      key,
+      model,
+    }: {
+      key: string;
+      model?: "openai" | "gemini";
+    }) => convertFigmaFileToHTML(key, model),
     onSuccess: (data) => {
       console.log("HTML generated:", data);
       setError(null);
@@ -101,7 +110,7 @@ const HomeView: React.FC = () => {
     if (!fileKey) return;
     setError(null);
     setHtmlResult(null);
-    convertMutation.mutate(fileKey);
+    convertMutation.mutate({ key: fileKey, model: selectedModel });
   };
 
   // Animation variants
@@ -261,6 +270,52 @@ const HomeView: React.FC = () => {
             )}
           </motion.form>
 
+          {/* Model Selection - Show after file is added */}
+          {isFileAdded && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="w-full max-w-xl mx-auto mb-4"
+            >
+              <div className="bg-white rounded-lg border border-stone-200 p-4">
+                <label className="block text-sm font-medium text-stone-700 mb-2">
+                  Select AI Model
+                </label>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setSelectedModel("gemini")}
+                    className={`flex-1 px-4 py-2 rounded-lg font-medium transition-all ${
+                      selectedModel === "gemini"
+                        ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md"
+                        : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                    }`}
+                  >
+                    Gemini 2.0 Flash
+                  </button>
+                  <button
+                    onClick={() => setSelectedModel("openai")}
+                    className={`flex-1 px-4 py-2 rounded-lg font-medium transition-all ${
+                      selectedModel === "openai"
+                        ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md"
+                        : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                    }`}
+                  >
+                    OpenAI GPT-4o
+                  </button>
+                </div>
+                <p className="text-xs text-stone-500 mt-2">
+                  Currently using:{" "}
+                  <strong>
+                    {selectedModel === "gemini"
+                      ? "Gemini 2.0 Flash"
+                      : "OpenAI GPT-4o"}
+                  </strong>
+                </p>
+              </div>
+            </motion.div>
+          )}
+
           {/* Convert Button - Show after file is added */}
           {isFileAdded && (
             <motion.div
@@ -277,7 +332,10 @@ const HomeView: React.FC = () => {
                 {isConverting ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>Converting...</span>
+                    <span>
+                      Converting with{" "}
+                      {selectedModel === "gemini" ? "Gemini" : "OpenAI"}...
+                    </span>
                   </>
                 ) : (
                   <>

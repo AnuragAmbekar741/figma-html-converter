@@ -76,7 +76,12 @@ export interface ConvertToHTMLResponse {
 }
 
 export const convertFigmaFileToHTML = async (
-  fileKey: string
+  fileKey: string,
+  model?: "openai" | "gemini"
 ): Promise<ConvertToHTMLResponse> => {
-  return get<ConvertToHTMLResponse>(`/file/figma/${fileKey}/convert`);
+  const params: Record<string, string> = {};
+  if (model) {
+    params.model = model;
+  }
+  return get<ConvertToHTMLResponse>(`/file/figma/${fileKey}/convert`, params);
 };
