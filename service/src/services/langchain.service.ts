@@ -2,7 +2,13 @@ import { ChatOpenAI } from "@langchain/openai";
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { langchainConfig } from "../config/langchain.config";
 import { FigmaExtractorService } from "./figma-extractor.service";
-import { getPromptTwo } from "../utils/prompt";
+import {
+  getPromptFinal,
+  getPromptFinal2,
+  getPromptFinalDesignSystem,
+  getPromptThree,
+  getPromptTwo,
+} from "../utils/prompt";
 
 type LLMProvider = ChatOpenAI | ChatGoogleGenerativeAI;
 
@@ -137,27 +143,11 @@ export class LangChainService {
     console.log(`[LangChain] Using ${this.provider} for conversion`);
 
     // Step 3: Create prompt with extracted data
+    const promptFinal = getPromptFinal();
     const prompt = `
-ROLE:
-YOU ARE AN EXPERT FRONT-END ENGINEER.
-YOUR JOB IS TO CONVERT THE GIVEN Figma JSON (FROM Figma get-file API) INTO ONE HTML PAGE THAT MATCHES THE DESIGN EXACTLY.
-
-PROCESS:
-1. Understand the design and the json input and what you need to do to build eg form, landing page, etc.
-2. This will help you to build the html accordingly and choose the right html elements and css properties.
-3. Make sure you map exact figma json to html elements and css properties.
-4. Build the html accordingly and choose the right html elements and css properties.
-5. Make sure all child nodes are mapped to parent nodes in right direction.
-6. Make sure spacing from x and y direction to child frames are mapped with input json wrt to parent frames.
-6. Map cornerRadii [a,b,c,d] → border-radius: apx bpx cpx dpx (top-left, top-right, bottom-right, bottom-left)
-7. Do not add any unnecessary spaces between element if not present in input json.
-
-OUTPUT:
-Return ONLY a full HTML document (<!DOCTYPE html>…</html>) with inline styles (+ the single optional <style> block / <link>).
-No markdown, no commentary.
-
-FIGMA JSON:
-${figmaJSON}`;
+  ${promptFinal}
+  Figma JSON:
+  ${figmaJSON}`;
 
     try {
       // Step 4: Send to LLM and wait for response
@@ -174,34 +164,3 @@ ${figmaJSON}`;
     }
   }
 }
-
-// ROLE
-// Expert front-end engineer. Convert the Figma JSON into ONE HTML page that matches the design EXACTLY. Use inline styles; allow ONE tiny <style> block for ::placeholder and UA resets (and a Google Fonts <link> if allowed).
-
-// HARD RULES
-// - 1:1 node→element. No invented content. Use px positions/sizes from absoluteBoundingBox. Center the root frame in <body> (flex, min-height:100vh). Root is position:relative with the frame’s size. Z-order = child order. If a style is missing, skip it.
-
-// RENDERING
-// - Colors: prefer hex; else rgba(round(r*255),round(g*255),round(b*255),a).
-// - Fills: SOLID→background-color; GRADIENT_*→background-image using gradientStops (pos×100%); angle from gradientHandlePositions when present, else 135deg.
-// - Strokes: border: strokeWeight px solid <strokeColor>. Corners: cornerRadius or [tl,tr,br,bl]→border-radius.
-// - Opacity→opacity. DROP/INNER_SHADOW→box-shadow. Ignore blurs.
-// - Auto-layout: display:flex; flex-direction from layoutMode; padding from padding*; gap from itemSpacing; align from axis settings.
-// - TEXT: render characters; escape HTML; apply fontFamily, fontSize, fontWeight, lineHeightPx, letterSpacing, color, text-align.
-
-// FONTS (STRICT)
-// - Collect families+weights from TEXT nodes; include ONE Google Fonts <link> (display=swap) and apply to all elements & ::placeholder. If links disallowed, still apply exact family + fallback stack.
-
-// PLACEHOLDER vs REAL TEXT (STRICT)
-// - If a light/low-contrast TEXT node (e.g., #E0E0E0/#D9D9D9/#BDBDBD/#A1A1A1 or opacity<1), named “placeholder/hint”, or sample-like (“mail@…”, “Password”, “••••”, “*******”) is INSIDE an input rectangle:
-//     → Use it as <input placeholder="…">; do NOT overlay text. Style ::placeholder to match JSON.
-// - Labels ABOVE/OUTSIDE the rectangle or higher-contrast label colors (e.g., #828282) → <label for="…">.
-// - Inputs have empty value unless JSON encodes a real value.
-
-// MICRO-POLISH (non-visual only)
-// - You may add: fex design micro polish rules.
-
-// OUTPUT
-// Return ONLY a full HTML document (<!DOCTYPE html>…</html>) with inline styles (+ the single optional <style> block / <link>). No markdown, no commentary.
-
-// FIGMA JSON:

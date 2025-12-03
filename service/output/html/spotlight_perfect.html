@@ -4,30 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotlight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             background-color: #1E1E1E;
         }
-        .container {
+        .root {
+            position: relative;
             width: 393px;
             height: 852px;
             background-color: #FAFAFA;
             border-radius: 32px;
-            position: relative;
             overflow: hidden;
         }
         .home-indicator {
             position: absolute;
-            bottom: 21px;
-            left: 0;
-            width: 393px;
-            height: 21px;
-        }
-        .home-indicator .indicator {
-            position: absolute;
-            bottom: 5px;
             left: 127px;
+            top: 839px;
             width: 139px;
             height: 5px;
             background-color: #2C194D;
@@ -36,33 +30,55 @@
         }
         .headline {
             position: absolute;
-            top: 170px;
             left: 32px;
+            top: 170px;
+            font-size: 48px;
             font-family: 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 48px;
             color: #363341;
             line-height: 57.6px;
             letter-spacing: -0.96px;
         }
-        .email-frame, .password-frame {
+        .input-container {
+            position: absolute;
+            left: 32px;
+            top: 252px;
             width: 329px;
-            margin: 20px 32px;
             border: 1px solid #D7D7D7;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
+            border-radius: 8px 8px 0 0;
             padding: 20px 16px;
+            box-sizing: border-box;
         }
-        .email-text, .password-text {
+        .input-email {
+            font-size: 15px;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
-            font-size: 15px;
             color: #363341;
             line-height: 18px;
             letter-spacing: -0.3px;
         }
+        .input-password {
+            position: absolute;
+            left: 32px;
+            top: 310px;
+            width: 329px;
+            border: 1px solid #D7D7D7;
+            border-radius: 0 0 8px 8px;
+            padding: 20px 16px;
+            box-sizing: border-box;
+        }
+        .label-password {
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: #C0C0C0;
+            line-height: 18px;
+            letter-spacing: -0.3px;
+        }
         .sign-in-button {
+            position: absolute;
+            left: 16px;
+            top: 662px;
             width: 361px;
             height: 46px;
             background: linear-gradient(90deg, #95228C 0%, #3A3CB3 100%);
@@ -70,18 +86,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: absolute;
-            bottom: 120px;
-            left: 16px;
-        }
-        .sign-in-button .button-text {
+            font-size: 15px;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            font-size: 15px;
             color: #FFFFFF;
+            text-align: center;
             letter-spacing: -0.15px;
         }
-        .create-account {
+        .create-account-button {
+            position: absolute;
+            left: 16px;
+            top: 720px;
             width: 361px;
             height: 46px;
             background-color: #E1E0E6;
@@ -89,25 +104,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: absolute;
-            bottom: 70px;
-            left: 16px;
-        }
-        .create-account .account-text {
+            font-size: 15px;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            font-size: 15px;
             color: #363341;
+            text-align: center;
             letter-spacing: -0.15px;
         }
         .forgot-password {
             position: absolute;
-            bottom: 30px;
             left: 16px;
+            top: 778px;
             width: 361px;
+            font-size: 13px;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
-            font-size: 13px;
             color: rgba(54, 51, 65, 0.8);
             text-align: center;
             line-height: 15.6px;
@@ -116,24 +127,18 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="root">
+        <div class="home-indicator"></div>
         <div class="headline">Sign in</div>
-        <div class="email-frame">
-            <div class="email-text">andy@gmail.com</div>
+        <div class="input-container">
+            <div class="input-email">andy@gmail.com</div>
         </div>
-        <div class="password-frame">
-            <div class="password-text">Password</div>
+        <div class="input-password">
+            <div class="label-password">Password</div>
         </div>
-        <div class="sign-in-button">
-            <div class="button-text">Sign in</div>
-        </div>
-        <div class="create-account">
-            <div class="account-text">Create account</div>
-        </div>
+        <div class="sign-in-button">Sign in</div>
+        <div class="create-account-button">Create account</div>
         <div class="forgot-password">Forgot password</div>
-        <div class="home-indicator">
-            <div class="indicator"></div>
-        </div>
     </div>
 </body>
 </html>

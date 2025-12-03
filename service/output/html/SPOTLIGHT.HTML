@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Spotlight - Sign in</title>
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1e1e1e;
+            /* canvas background */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Root frame (1:12) -->
+    <div style="
+      position: relative;
+      width: 393px;
+      height: 852px;
+      background-color: #fafafa;
+      border-radius: 32px;
+      overflow: hidden;
+    ">
+        <!-- Home Indicator frame (1:13) -->
+        <div style="
+        position: absolute;
+        left: 0px;
+        top: 831px;
+        width: 393px;
+        height: 21px;
+      ">
+            <!-- Home Indicator bar (1:14) -->
+            <div style="
+          position: absolute;
+          left: 127px;
+          top: 8px; /* 839 - 831 */
+          width: 139px;
+          height: 5px;
+          background-color: #2c194d;
+          border-radius: 100px;
+        "></div>
+        </div>
+
+        <!-- Headline: Sign in (1:15) -->
+        <div style="
+        position: absolute;
+        left: 32px;
+        top: 170px;
+        width: 154px;
+        height: 58px;
+        font-size: 48px;
+        font-weight: 700;
+        color: #363341;
+        letter-spacing: -0.96px;
+        line-height: 57.6px;
+        display: flex;
+        align-items: center;
+      ">
+            Sign in
+        </div>
+
+        <!-- Frame 1321318736: Email + Password group (1:16) -->
+        <div style="
+        position: absolute;
+        left: 32px;
+        top: 252px;
+        width: 329px;
+        height: 117px;
+        display: flex;
+        flex-direction: column;
+      ">
+            <!-- Email field frame (1:17) -->
+            <div style="
+          box-sizing: border-box;
+          width: 100%;
+          height: 58px;
+          display: flex;
+          align-items: center;
+          padding: 20px 16px;
+          border: 1px solid #d7d7d7;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        ">
+                <!-- Email text (1:18) -->
+                <div style="
+            font-size: 15px;
+            font-weight: 500;
+            color: #363341;
+            letter-spacing: -0.3px;
+            line-height: 18px;
+          ">
+                    andy@gmail.com
+                </div>
+            </div>
+
+            <!-- Password field frame (1:19) -->
+            <div style="
+          box-sizing: border-box;
+          width: 100%;
+          height: 59px;
+          display: flex;
+          align-items: center;
+          padding: 20px 16px;
+          border: 1px solid #d7d7d7;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+        ">
+                <!-- Password text (1:20) -->
+                <div style="
+            font-size: 15px;
+            font-weight: 500;
+            color: #c0c0c0;
+            letter-spacing: -0.3px;
+            line-height: 18px;
+          ">
+                    Password
+                </div>
+            </div>
+        </div>
+
+        <!-- Primary gradient button: Sign in (1:21) -->
+        <div style="
+        position: absolute;
+        left: 16px;
+        top: 662px;
+        width: 361px;
+        height: 46px;
+        border-radius: 62px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(90deg, #95228c 0%, #3a3cb3 100%);
+        backdrop-filter: blur(10px);
+      ">
+            <!-- Button label (1:22) -->
+            <div style="
+          font-size: 15px;
+          font-weight: 600;
+          color: #ffffff;
+          letter-spacing: -0.15px;
+          line-height: 22px;
+        ">
+                Sign in
+            </div>
+        </div>
+
+        <!-- Secondary button: Create account (1:23) -->
+        <div style="
+        position: absolute;
+        left: 16px;
+        top: 720px;
+        width: 361px;
+        height: 46px;
+        border-radius: 62px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e1e0e6;
+        backdrop-filter: blur(10px);
+      ">
+            <!-- Button label (1:24) -->
+            <div style="
+          font-size: 15px;
+          font-weight: 600;
+          color: #363341;
+          letter-spacing: -0.15px;
+          line-height: 22px;
+        ">
+                Create account
+            </div>
+        </div>
+
+        <!-- Forgot password text (1:25) -->
+        <div style="
+        position: absolute;
+        left: 16px;
+        top: 778px;
+        width: 361px;
+        height: 37px;
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(54, 51, 65, 0.8);
+        letter-spacing: -0.26px;
+        line-height: 15.6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      ">
+            Forgot password
+        </div>
+    </div>
+</body>
+
+</html>
